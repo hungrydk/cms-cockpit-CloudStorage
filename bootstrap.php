@@ -42,8 +42,9 @@ $this->on('cockpit.filestorages.init', function(&$storages) {
                         ],
                         'region'  => $settings['region'],
                         'version' => isset($settings['version']) ? $settings['version'] : 'latest',
+                        'bucket_endpoint' => true,
                     ],
-                    $settings['endpoint'] ? ['endpoint' => $settings['endpoint']] : []
+                    $settings['endpoint'] ? ['endpoint' => $settings['endpoint'], ['bucket_endpoint' => true]] : []
                 ));
 
                 $storages[$key] = [
